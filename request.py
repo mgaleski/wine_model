@@ -9,7 +9,7 @@ headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
 # Flask URL
 url = 'http://0.0.0.0:5000/api'
 
-
+#Feeds first 20 records to the app to give test predictions
 for i in range(0, 20):
     data = [[df['fixed acidity'][i], df['volatile acidity'][i], df['citric acid'][i], df['residual sugar'][i],
              df['chlorides'][i], df['free sulfur dioxide'][i], df['total sulfur dioxide'][i], df['pH'][i],
@@ -18,5 +18,5 @@ for i in range(0, 20):
     r = requests.post(url, data=j_data, headers=headers)
     print(r, r.text)
 
-#Post request sent to flask app
+
 

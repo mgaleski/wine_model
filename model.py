@@ -10,19 +10,15 @@ from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_sc
 wine = pd.read_csv('./database/winequality.csv')
 
 #quality rating bins, 6.5-8 = good, less than 6.5 = bad
-bins = [2, 6.5, 8]
+bins = [0, 6.5, 10]
 labels = ['bad', 'good']
 wine['quality'] = pd.cut(wine['quality'], bins=bins, labels=labels)
 wine = wine.dropna()
 
 X = wine.drop(['Unnamed: 0', 'color', 'quality', 'good', 'density', 'wine_id'], axis=1)
-print(X.columns)
 y = wine['quality']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# sc = StandardScaler()
-# X_train = sc.fit_transform(X_train)
-# X_test = sc.fit_transform(X_test)
 
 rfc = RandomForestClassifier(n_estimators=200)
 rfc.fit(X_train, y_train)
@@ -34,10 +30,10 @@ sgd.fit(X_train, y_train)
 pred_sgd = sgd.predict(X_test)
 print(classification_report(y_test, pred_sgd))
 
-svc = SVC(C=1.2, gamma=0.9, kernel= 'rbf')
+svc = SVC(C=1.2, gamma=0.9, kernel='rbf')
 svc.fit(X_train, y_train)
 pred_svc2 = svc.predict(X_test)
 print(classification_report(y_test, pred_svc2))
 
 import pickle
-pickle.dump(svc, open('model.pkl', 'wb'))
+pickle.dump(rfc, open('model.pkl', 'wb'))
