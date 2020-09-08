@@ -5,6 +5,10 @@
     <title>Wine Quality Predictor</title>
 </head>
 <body>
+    <h1>Welcome to the wine quality predictor!</h1>
+    <p>Enter values below to make a prediction. Values included below are for a sample high quality wine.</p>
+    <p>Check out the readme in the project file for more details and analysis.</p>
+    <h3></h3>
     <form action="/" method="POST">
     <fieldset>
         <legend>Input values:</legend>
@@ -48,9 +52,11 @@
 <br>
 <div class="result" align="center">
     {% if result %}
-        <br> Predicted Quality of Wine:
-           <p style="font-size:50px">{ result }</p>
+        <br> Prediction: {{ result }}
+        <br>
+
     {% endif %}
 </div>
+<p>*A high quality wine is one that scores a 7 or higher on the 9 point scale</p>
 </body>
 </html>

@@ -35,13 +35,15 @@ def main():
 
 
         # Predicting the Wine Quality using the loaded model
-        prediction = model.predict(datapoints)[0]
+        prediction = model.predict(datapoints)
+        print(prediction[0])
         if prediction == 'bad':
-            prediction = "Low Wine Quality"
+            result_text = 'Low Wine Quality'
         else:
-            prediction = "High Wine Quality"
+            result_text = 'High Wine Quality'
 
-        return render_template('home_test.html', result=test)
+
+        return render_template('home_test.html', result=result_text)
 
 
 if __name__ == '__main__':

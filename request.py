@@ -3,11 +3,13 @@ import json
 import pandas as pd
 
 df = pd.read_csv('database/winequality.csv')
+print(df.columns)
 df = df.reset_index().drop(['index','Unnamed: 0', 'wine_id', 'color', 'good', 'density','quality'], axis=1)
 headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
 
+
 # Flask URL
-url = 'http://0.0.0.0:5000/'
+url = 'http://127.0.0.1:5000/'
 
 #Feeds first 10 records to the app to give test predictions
 for i in range(0, 10):
