@@ -11,15 +11,16 @@ model = pickle.load(open('model.pkl', 'rb'))
 app = Flask(__name__)
 
 # routes
-@app.route('/')
-def home():
-    return render_template('home.html')
 
-@app.route('/api', methods=['POST'])
-def get_prediction():
-    data = request.get_json()
-    prediction = np.array2string(model.predict(data))
-    return jsonify(prediction)
+@app.route('/', methods=['POST', 'GET'])
+def home():
+    if request.method == 'GET':
+        return render_template('home.html')
+    if request.method == 'POST':
+        data = request.get_json()
+        prediction = np.array2string(model.predict(data))
+        return jsonify(prediction)
+
 
 if __name__ == '__main__':
     modelfile = './model.pkl'

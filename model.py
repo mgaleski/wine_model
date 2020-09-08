@@ -1,12 +1,10 @@
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.linear_model import SGDClassifier
-from sklearn.metrics import confusion_matrix, classification_report
-from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.metrics import, classification_report
 from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_score
+
 wine = pd.read_csv('./database/winequality.csv')
 
 #quality rating bins, 6.5-8 = good, less than 6.5 = bad

@@ -7,10 +7,10 @@ df = df.reset_index().drop(['index','Unnamed: 0', 'wine_id', 'color', 'good', 'd
 headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
 
 # Flask URL
-url = 'http://0.0.0.0:5000/api'
+url = 'http://0.0.0.0:5000/'
 
-#Feeds first 20 records to the app to give test predictions
-for i in range(0, 20):
+#Feeds first 10 records to the app to give test predictions
+for i in range(0, 10):
     data = [[df['fixed acidity'][i], df['volatile acidity'][i], df['citric acid'][i], df['residual sugar'][i],
              df['chlorides'][i], df['free sulfur dioxide'][i], df['total sulfur dioxide'][i], df['pH'][i],
              df['sulphates'][i], df['alcohol'][i]]]
