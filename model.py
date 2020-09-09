@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 
 wine = pd.read_csv('winequality.csv')
 
-#quality rating bins
+#quality rating bins, with high quality wines being those above a 6.5 rating
 bins = [2, 6.5, 9]
 labels = ['bad', 'good']
 wine['quality'] = pd.cut(wine['quality'], bins=bins, labels=labels)
@@ -21,10 +21,10 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 '''
 These were the other types of model tested
 '''
-rfc = RandomForestClassifier(n_estimators=200)
-rfc.fit(X_train, y_train)
-rfc_pred = rfc.predict(X_test)
-print(classification_report(y_test, rfc_pred))
+# rfc = RandomForestClassifier(n_estimators=200)
+# rfc.fit(X_train, y_train)
+# rfc_pred = rfc.predict(X_test)
+# print(classification_report(y_test, rfc_pred))
 #
 # sgd = SGDClassifier(penalty=None)
 # sgd.fit(X_train, y_train)
