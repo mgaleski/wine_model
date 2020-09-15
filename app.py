@@ -42,7 +42,6 @@ def main():
         else:
             result_text = 'High Wine Quality'
 
-
         return render_template('home.html', result=result_text)
 
 
