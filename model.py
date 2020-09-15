@@ -21,15 +21,15 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 '''
 These were the other types of model tested
 '''
-# rfc = RandomForestClassifier(n_estimators=200)
-# rfc.fit(X_train, y_train)
-# rfc_pred = rfc.predict(X_test)
-# print(classification_report(y_test, rfc_pred))
-#
-# sgd = SGDClassifier(penalty=None)
-# sgd.fit(X_train, y_train)
-# pred_sgd = sgd.predict(X_test)
-# print(classification_report(y_test, pred_sgd))
+rfc = RandomForestClassifier(n_estimators=200)
+rfc.fit(X_train, y_train)
+rfc_pred = rfc.predict(X_test)
+print(classification_report(y_test, rfc_pred))
+
+sgd = SGDClassifier(penalty=None)
+sgd.fit(X_train, y_train)
+pred_sgd = sgd.predict(X_test)
+print(classification_report(y_test, pred_sgd))
 
 '''
 Parameters here were determined by code below, not included to save time when running the program
@@ -39,7 +39,7 @@ svc.fit(X_train, y_train)
 pred_svc = svc.predict(X_test)
 print(classification_report(y_test, pred_svc))
 
-
+#
 # param = {
 #     'C': [0.1,0.8,0.9,1,1.1,1.2,1.3,1.4],
 #     'kernel':['linear', 'rbf'],
@@ -53,3 +53,7 @@ print(classification_report(y_test, pred_svc))
 
 import pickle
 pickle.dump(svc, open('model.pkl', 'wb'))
+
+import nltk
+import sklearn
+print('The scikit-learn version is {}.'.format(sklearn.__version__))
