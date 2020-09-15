@@ -5,7 +5,7 @@ import pickle
 
 app = Flask(__name__)
 
-with open('../model.pkl', 'rb') as file:
+with open('model.pkl', 'rb') as file:
     model = pickle.load(file)
 
 @app.route('/', methods=['GET', 'POST'])
