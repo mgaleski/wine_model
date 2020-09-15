@@ -56,6 +56,7 @@ pickle.dump(svc, open('model.pkl', 'wb'))
 
 import nltk
 import sklearn
-import pandas
+import flask
 print('The scikit-learn version is {}.'.format(sklearn.__version__))
-print('The pandas version is {}.'.format(pandas.__version__))
+print('The pandas version is {}.'.format(pd.__version__))
+print('The flask version is {}.'.format(flask.__version__))
