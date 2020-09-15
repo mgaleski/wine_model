@@ -54,9 +54,9 @@ print(classification_report(y_test, pred_svc))
 import pickle
 pickle.dump(svc, open('model.pkl', 'wb'))
 
-import nltk
+import numpy
 import sklearn
 import flask
 print('The scikit-learn version is {}.'.format(sklearn.__version__))
-print('The pandas version is {}.'.format(pd.__version__))
+print('The pandas version is {}.'.format(numpy.__version__))
 print('The flask version is {}.'.format(flask.__version__))
