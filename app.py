@@ -46,5 +46,3 @@ def main():
         return render_template('home.html', result=result_text)
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
